@@ -1,0 +1,64 @@
+<div>
+
+
+  <form [formGroup]="ParalelogramData">
+
+    <label> Valorile paralelogramului</label>
+
+    <div class="form-group">
+
+      <input type="number" id="inaltimea" placeholder="Inaltimea" formControlName="inaltimea" required
+        class="form-control">
+      <br />
+      <input type="number" id="baza" placeholder="Introduceti baza" class="form-control" formControlName="baza"
+        required>
+
+
+
+      <div *ngIf="ParalelogramBazaErr.invalid && (ParalelogramBazaErr.dirty || ParalelogramBazaErr.touched)"
+        class="alert alert-danger">
+
+
+        <div *ngIf="ParalelogramBazaErr.errors.required">
+          Number is required
+        </div>
+
+        <div *ngIf="ParalelogramBazaErr.errors.min">
+          Number must be greater than 0
+        </div>
+
+      </div>
+
+
+      <div
+        *ngIf="ParalelogramInaltimeaErr.invalid && (ParalelogramInaltimeaErr.dirty || ParalelogramInaltimeaErr.touched)"
+        class="alert alert-danger">
+
+        <div *ngIf="ParalelogramInaltimeaErr.errors.required">
+          Number is required
+        </div>
+
+        <div *ngIf="ParalelogramInaltimeaErr.errors.min">
+          Number must be greater than 0
+        </div>
+
+      </div>
+
+    </div>
+
+    <div>
+      <button (click)="getParalelogramArea()"
+        [disabled]="!ParalelogramInaltimeaErr.valid || !ParalelogramBazaErr.valid">Resolve</button>
+    </div>
+
+  </form>
+
+  <div class="rez" *ngIf="Rez">
+    Aria paralelogramului este: {{Rez.result}}
+
+    <img src="https://latex.artofproblemsolving.com/0/9/6/0968b4ab3c52e51d6a3d76a47eff0570283decec.png" height="200px">
+  </div>
+
+
+
+</div>

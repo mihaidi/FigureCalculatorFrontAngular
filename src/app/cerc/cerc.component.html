@@ -1,0 +1,39 @@
+<div>
+
+  <form [formGroup]="circleData">
+    <label> Lungimea razei cercului</label>
+    <div class="form-group">
+
+      <input type="number" id="razaCercului" class="form-control" placeholder="Raza cercului"
+        formControlName="razaCercului" required>
+    </div>
+
+    <div *ngIf="circleErr.invalid && (circleErr.dirty || circleErr.touched)" class="alert alert-danger">
+
+      <div *ngIf="circleErr.errors.required">
+        Number is required
+      </div>
+
+      <div *ngIf="circleErr.errors.min">
+        Number must be graeter than 0
+      </div>
+
+    </div>
+
+
+
+    <div>
+      <button (click)="getCircleArea()" [disabled]="!circleErr.valid">
+        Resolve</button>
+    </div>
+
+    <div *ngIf="Rez" class="rez">
+      Aria cercului este: {{Rez.result}}
+
+      <img
+        src="https://intl.siyavula.com/read/maths/grade-11/euclidean-geometry/images/813111b2cf3bc941ae5f890501d87aba.png"
+        height="200px">
+    </div>
+
+  </form>
+</div>

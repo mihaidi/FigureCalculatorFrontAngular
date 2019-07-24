@@ -1,0 +1,54 @@
+<div (mouseover)="changeText=true" (mouseout)="changeText=false">
+  <h2>Selectati figura dorita</h2>
+  <mat-grid-list cols="3" rowHeight="100px">
+
+    <mat-grid-tile [colspan]="0.5" rowspan="2.5">
+      <p>Patrat</p>
+      <a routerLink="/square">
+        <img src="https://d1whtlypfis84e.cloudfront.net/guides/wp-content/uploads/2018/02/18045916/GM05.gif"
+          height="200px">
+          
+      </a>
+    </mat-grid-tile>
+
+    <mat-grid-tile [colspan]="0.5" rowspan="2.5">
+      <p>Cerc</p>
+      <a routerLink="/circle">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Circle_-_black_simple.svg/1024px-Circle_-_black_simple.svg.png"
+          height="200px">
+      </a>
+    </mat-grid-tile>
+
+    <mat-grid-tile [colspan]="0.5" rowspan="2.5">
+      <p>Rectangle</p>
+      <a routerLink="/rectangle">
+        <img src="http://icons.iconarchive.com/icons/icons8/ios7/512/Editing-Rectangle-icon.png" height="200px">
+      </a>
+    </mat-grid-tile>
+
+    <mat-grid-tile [colspan]="0.5" rowspan="2.5">
+      <p>Triunghi</p>
+      <a routerLink="/triangle">
+        <img src="https://www.freeiconspng.com/uploads/black-and-white-triangle-png-16.png" height="200px">
+      </a>
+    </mat-grid-tile>
+
+    <mat-grid-tile [colspan]="0.5" rowspan="2.5">
+      <p>Poligon</p>
+      <a routerLink="/poligon">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMG5xeZOmgtNeDXPz-y9jk68c-sakj2-BLRr_EH3t3lKd-iRawGg"
+          height="200px">
+      </a>
+    </mat-grid-tile>
+
+    <mat-grid-tile [colspan]="0.5" rowspan="2.5">
+      <p>Paralelogram</p>
+      <a routerLink="/paralelogram">
+        <img src="https://www.mathplanet.com/Oldsite/media/44000/parallelogram_499x300.jpg" height="200px">
+      </a>
+    </mat-grid-tile>
+  </mat-grid-list>
+
+
+</div>

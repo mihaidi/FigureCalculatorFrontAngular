@@ -1,0 +1,61 @@
+<div>
+
+  <form [formGroup]="triunghiData">
+
+    <label>Lungimea bazei</label>
+
+    <div class="form-group">
+      <input type="number" id="baza" class="form-control" placeholder="Baza triunghiului" formControlName="baza"
+        required>
+      <br />
+      <input type="number" id="inaltimea" class="form-control" placeholder="Inaltima triunghiului"
+        formControlName="inaltimea" required>
+    </div>
+
+
+    <div *ngIf="TriunghiErrInaltimea.invalid && (TriunghiErrInaltimea.dirty || TriunghiErrInaltimea.touched)"
+      class="alert alert-danger">
+
+      <div *ngIf="TriunghiErrInaltimea.errors.required">
+        Number is required
+      </div>
+
+      <div *ngIf="TriunghiErrInaltimea.errors.min">
+        Number muust be greater than 0
+      </div>
+
+    </div>
+
+
+    <div *ngIf="TriunggiErrBaza.invalid && (TriunggiErrBaza.dirty || TriunggiErrBaza.touched)"
+      class="alert alert-danger">
+
+
+      <div *ngIf="TriunggiErrBaza.errors.required">
+        Number is required
+      </div>
+
+
+      <div *ngIf="TriunggiErrBaza.errors.min">
+        Number must be greater than 0
+      </div>
+
+    </div>
+  </form>
+
+  <div>
+    <button (click)="getTriangleaArea()"
+      [disabled]="!TriunggiErrBaza.valid || !TriunghiErrInaltimea.valid">Resolve</button>
+  </div>
+
+
+  <div class="rez" *ngIf="Rez">
+    Aria triunghiului este: {{Rez.result}}
+
+    <img src="https://www.dummies.com/wp-content/uploads/258409.image1.jpg" alt="200px">
+
+  </div>
+
+
+
+</div>

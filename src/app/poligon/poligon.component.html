@@ -1,0 +1,56 @@
+<div>
+
+  <form [formGroup]="poligonData">
+
+    <label>Valorile poligonului</label>
+
+    <div class="form-group">
+
+
+      <input type="number" class="form-control" placeholder="Nr de laturi" formControlName="nrDeLaturi" id="nrDeLaturi"
+        required>
+      <br />
+      <input type="number" id="raza" placeholder="Raza" class="form-control" formControlName="raza" required>
+
+      <div *ngIf="PoligonNrDeLaturiErr.invalid && (PoligonNrDeLaturiErr.dirty || PoligonNrDeLaturiErr.touched)"
+        class="alert alert-danger">
+
+        <div *ngIf="PoligonNrDeLaturiErr.errors.required">
+          Number is required
+        </div>
+
+        <div *ngIf="PoligonNrDeLaturiErr.errors.min">
+          Number must be greater than 0
+        </div>
+
+      </div>
+
+      <div *ngIf="PoligonRazaErr.invalid && (PoligonRazaErr.dirty || PoligonRazaErr.touched)"
+        class="alert alert-danger">
+
+        <div *ngIf="PoligonRazaErr.errors.required">
+          Number is required
+        </div>
+
+        <div *ngIf="PoligonRazaErr.errors.min">
+          Number must be greater than 0
+        </div>
+
+      </div>
+
+    </div>
+
+    <div>
+      <button (click)="getPoligonArea()" [disabled]="!PoligonNrDeLaturiErr.valid || !PoligonRazaErr.valid">Resolve</button>
+    </div>
+  </form>
+
+
+  <div class="rez" *ngIf="Rez">
+    Aria poligonului este : {{Rez.result}}
+
+    <img src="https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2017/07/1500352933carousel-03.jpg" height="200px">
+  </div>
+
+
+</div>

@@ -1,0 +1,59 @@
+<div>
+
+  <form [formGroup]="rectangleData">
+
+    <label>Valorile dreptunghiului</label>
+
+    <div class="form-group">
+
+      <input type="number" class="form-control" placeholder="Lungimea dreptunghiului" formControlName="longitude"
+        id="longitude" required>
+
+      <br />
+      <input type="number" class="form-control" placeholder="Latimea dreptunghiului" formControlName="latitude"
+        id="latitude" required>
+    </div>
+
+    <div *ngIf="RectangleErrLongitude.invalid && (RectangleErrLongitude.dirty || RectangleErrLongitude.touched)"
+      class="alert alert-danger">
+
+      <div *ngIf="RectangleErrLongitude.errors.required">
+        Number is required
+      </div>
+
+      <div *ngIf="RectangleErrLongitude.errors.min">
+        Number must be greater than 0
+      </div>
+    </div>
+
+
+    <div *ngIf="resctangleErrLatitude.invalid && (resctangleErrLatitude.dirty || resctangleErrLatitude.touched)"
+      class="alert alert-danger">
+
+      <div *ngIf="resctangleErrLatitude.errors.required">
+        Number is required
+      </div>
+
+      <div *ngIf="resctangleErrLatitude.errors.min">
+        Number must be greater than 0
+      </div>
+    </div>
+
+    <div>
+
+      <button (click)="getRectangleArea()"
+        [disabled]="!resctangleErrLatitude.valid || !RectangleErrLongitude.valid">Resolve</button>
+
+    </div>
+
+  </form>
+
+  <div class="rez" *ngIf="Rez">
+    Aria patrulaterului este: {{Rez.result}}
+
+    <img src="https://www.gigacalculator.com/img/calculators/perimeter-rectangle.png" height="200px">
+
+  </div>
+
+
+</div>
